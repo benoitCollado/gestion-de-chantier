@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Stock overview</h2>
+<h3>Materials</h3>
+<ul>
+  {% for material in materials %}
+    <li>{{material.name}}, category : {{material.category_id.name}}, supplier :{{material.supplier_id.name}} </li>
+  {% endfor %}
+</ul>
+<p><a href="{% url 'inventory:materialList' %}"}">voir la liste complète des matériaux</a></p>
+<p><a href="{% url 'inventory:materialCreate' %}"}">Créer une nouvelle référence</a></p>
+<h3>Categories</h3>
+<ul>
+  {% for category in categories %}
+    <li>{{category.name}}</li>
+  {% endfor %}
+</ul>
+<h3>Suppliers</h3>
+<ul>
+  {% for supplier in suppliers %}
+    <li>{{supplier.name}}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

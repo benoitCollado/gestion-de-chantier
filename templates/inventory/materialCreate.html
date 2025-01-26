@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>add a metrial</h2>
+<ul>
+  <form action="{% url 'inventory:materialCreate' %}" method='post'>
+    {% csrf_token %}
+    <label for='name'>Name :</label>
+    <input type='text' name='name' />
+    <label for="code">Code :</label>
+    <input type='text' name='code'>
+    <label for='description'>Description :</label>
+    <textarea name='description' col="40" row="5"></textarea>
+    <label for='category_id'></label>
+    <select name='category_id'>
+      {% for category in categories %}
+        <option value="{{category.id}}">{{category}} // {{category.id}}</option>
+      {% endfor %}
+    </select>
+    <label for='supplier_id'></label>
+    <select name='supplier_id'>
+      {% for supplier in suppliers %}
+        <option value="{{supplier.id}}">{{supplier}} // {{supplier.id}}</option>
+      {% endfor %}
+    </select>
+    <label for='reorder_level' >Reorder level</label>
+    <input type='number' name='reorder_level'>
+    <label for='unit_id'></label>
+    <select name='unit_id'>
+      {% for unit in units %}
+        <option value="{{unit.id}}">{{unit}} // {{unit.id}}</option>
+      {% endfor %}
+    </select>
+    <input type='submit' value='Create'> 
+  </form>
+</ul>
+{% endblock %}

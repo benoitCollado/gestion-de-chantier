@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> liste des matériaux </h2>
+
+<ul>
+    {% for material in materials %}
+      <li>{{material.name}}, category :{{material.category_id.name}}, supplier :{{material.supplier_id.name}}</li>
+
+    {% empty %}  
+      <li>No material to display</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

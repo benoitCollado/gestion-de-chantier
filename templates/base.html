@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>{{title_application}}</h1>
+    </div>
+    <div>
+        <nav>
+          <ul>
+            <li><a href="/inventory">Stocks</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/admin">Admin</a></li>
+          </ul>
+        </nav>
+    </div>
+
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    <div>
+      <p>Copyright</p>
+      <p>RGPD</p>
+    </div>
+  </footer>
+
+</body>
+</html>
